@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include <math.h>
 
+#define M_PI (3.1415926535897932384)
+#define NORTH_POLE_LATITUDE (90.0)
+#define HALF_CIRCLE_DEGREES (180.0)
+#define EARTH_RADIUS_MILES (3959)
+
 /**
  * Compile and run with
  *
@@ -59,7 +64,7 @@ int main()
   double total_distance = distance(prev_lat, prev_lon, curr_lat, curr_lon);
   
   // convert radians to arc length by multiplying by radius and output
-  printf("distance %lf miles\n", total_distance * 3959);
+  printf("distance %lf miles\n", total_distance * EARTH_RADIUS_MILES);
 }
 
 
@@ -81,12 +86,12 @@ double distance(double lat1, double lon1, double lat2, double lon2)
 
 double colatitude(double lat)
 {
-  return 90 - lat;
+  return NORTH_POLE_LATITUDE - lat;
 }
 
 
 double to_radians(double a)
 {
-  return (3.1415926535897932384 / 180.0) * a;
+  return (M_PI / HALF_CIRCLE_DEGREES) * a;
 }
 
