@@ -23,15 +23,14 @@
  */
 int main()
 {
-  double prev_lat = 41.2679, prev_lon = -72.8869;
-  double curr_lat = 39.1774, curr_lon = -76.6684;
+  double prev_lat, prev_lon;
+  double curr_lat, curr_lon;
 
-  double total_distance = distance(prev_lat, prev_lon, curr_lat, curr_lon);
-  
-  // convert radians to arc length by multiplying by radius and output
-  printf("distance %lf miles\n", total_distance * EARTH_RADIUS_MILES);
+  if (scanf("%lf %lf %lf %lf", &prev_lat, &prev_lon, &curr_lat, &curr_lon) == 4)
+    {
+      double total_distance = distance(prev_lat, prev_lon, curr_lat, curr_lon);
+      
+      // convert radians to arc length by multiplying by radius and output
+      printf("distance %lf miles\n", total_distance * EARTH_RADIUS_MILES);
+  }
 }
-
-
-
-
