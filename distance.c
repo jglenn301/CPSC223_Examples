@@ -1,51 +1,16 @@
 #include <stdio.h>
-#include <math.h>
 
-#define M_PI (3.1415926535897932384)
-#define NORTH_POLE_LATITUDE (90.0)
-#define HALF_CIRCLE_DEGREES (180.0)
+#include "more_math.h"
+#include "sphere.h"
+
 #define EARTH_RADIUS_MILES (3959)
 
 /**
  * Compile and run with
  *
- * gcc -o Distance -Wall -std=c99 -pedantic -g distance.c -lm
+ * gcc -o Distance -Wall -std=c99 -pedantic -g distance.c more_math.c sphere.c -lm
  * ./Distance
  */
-
-/**
- * Declarations of our functions must precede their use. They're written
- * here with Javadoc-style comments.
- */
-
-/**
- * Returns the colatitude of the given latitude.  The colatitude is the
- * degrees from the north pole to the given latitude.
- * 
- * @param lat a double between -90 and 90
- * @return the colatitude
- */
-double colatitude(double lat);
-
-/**
- * Returns given angle converted from degrees to radians.
- * 
- * @param a an angle measured in degrees
- * @return the angle in radians
- */
-double to_radians(double a);
-
-/**
- * Returns the distance from one point on the surface of a sphere to another,
- * expressed in terms of the sphere's radius (1.0 = 1 radius).
- * 
- * @param lat1 a number between -90.0 and 90.0
- * @param lon1 a number between -180.0 and 180.0
- * @param lat2 a number between -90.0 and 90.0
- * @param lon2 a number between -180.0 and 180.0
- * @return the distance between the specified points
- */
-double distance(double lat1, double lon1, double lat2, double lon2);
 
 /**
  * Computes the distance of a path given the latitudes and longitudes
@@ -68,30 +33,5 @@ int main()
 }
 
 
-double distance(double lat1, double lon1, double lat2, double lon2)
-{
-  // compute colatitudes and convert to radians
-  double colat1 = colatitude(lat1);
-  colat1 = to_radians(colat1);
-  double colat2 = colatitude(lat2);
-  colat2 = to_radians(colat2);
 
-  // compute difference in longitudes in radians
-  double delta_lon = to_radians(lon1 - lon2);
-
-  // use spherical law of cosines to compute angle
-  double x = acos(cos(colat1) * cos(colat2) + sin(colat1) * sin(colat2) * cos(delta_lon));
-}
-
-
-double colatitude(double lat)
-{
-  return NORTH_POLE_LATITUDE - lat;
-}
-
-
-double to_radians(double a)
-{
-  return (M_PI / HALF_CIRCLE_DEGREES) * a;
-}
 
