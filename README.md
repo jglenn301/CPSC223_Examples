@@ -1,4 +1,4 @@
-As of Tue Sep 3, we've gotten through the first 3 versions:
+As of Tue Sep 3, we've gotten through the first 4 versions:
 * f24_00_no_functions -- the initial version with all code in main
 * f24_01_functions -- with code split into main and three functions
 * f24_02_constants -- with constants #define-d
