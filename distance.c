@@ -80,7 +80,7 @@ double distance(double lat1, double lon1, double lat2, double lon2)
   double delta_lon = to_radians(lon1 - lon2);
 
   // use spherical law of cosines to compute angle
-  double x = acos(cos(colat1) * cos(colat2) + sin(colat1) * sin(colat2) * cos(delta_lon));
+  return acos(cos(colat1) * cos(colat2) + sin(colat1) * sin(colat2) * cos(delta_lon));
 }
 
 
