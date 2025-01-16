@@ -1,4 +1,4 @@
-As of Tue Sep 3, we've gotten through the first 3 versions:
+As of Tue Sep 3 (and Jan 16), we've gotten through the first 3 versions:
 * f24_00_no_functions -- the initial version with all code in main
 * f24_01_functions -- with code split into main and three functions
 * f24_02_constants -- with constants #define-d
@@ -12,4 +12,4 @@ gcc -c -Wall -std=c17 -pedantic -g more_math.c
 gcc -o Distance -Wall -std=c17 -pedantic -g distance.o sphere.o more_math.o -lm
 ./Distance
 ```
-On Thursday we'll use a makefile to handle rerunning those commands automatically when we change files and scanf to handle user input.
+Next time, we'll use a makefile to handle rerunning those commands automatically when we change files and scanf to handle user input.
